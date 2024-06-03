@@ -1,4 +1,4 @@
-package com.enons.paparaproject.ui.theme
+package com.enons.paparaproject.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

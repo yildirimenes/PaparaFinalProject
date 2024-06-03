@@ -1,4 +1,4 @@
-package com.enons.paparaproject.ui.theme
+package com.enons.paparaproject.presentation.ui.theme
 
 import android.app.Activity
 import android.os.Build
