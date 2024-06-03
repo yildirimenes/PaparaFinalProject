@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">Papara Final Project</string>
+    <string name="app_name">Recipe Box</string>
+
+    //Card Component Name
+    <string name="recipe_page">Recipe Screen</string>
+    <string name="chat_ai_page">ChatAI Screen</string>
+    <string name="suggest_page">Suggest Screen</string>
+    <string name="favorite_page">Favorite Screen</string>
+
+
 </resources>

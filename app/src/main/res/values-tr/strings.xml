@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Recipe Box</string>
+
+    //Card Component Name
+    <string name="recipe_page">Tarif Sayfası</string>
+    <string name="chat_ai_page">ChatAI Sayfası</string>
+    <string name="suggest_page">Öneri Sayfası</string>
+    <string name="favorite_page">Favoriler Sayfası</string>
+</resources>
