@@ -7,4 +7,7 @@
     <string name="chat_ai_page">ChatAI Sayfası</string>
     <string name="suggest_page">Öneri Sayfası</string>
     <string name="favorite_page">Favoriler Sayfası</string>
+
+    // Message
+    <string name="try_again">Try Again</string>
 </resources>

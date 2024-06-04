@@ -17,8 +17,8 @@ fun CustomText(
     Text(
         text = text,
         fontWeight = FontWeight.Normal,
-        fontFamily = FontFamily.SansSerif,
-        fontSize = 32.sp,
+        fontFamily = FontFamily.Serif,
+        fontSize = 28.sp,
         modifier = Modifier.padding(padding.dp)
     )
 }
