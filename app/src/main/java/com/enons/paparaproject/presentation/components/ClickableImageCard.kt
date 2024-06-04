@@ -37,7 +37,7 @@ fun ClickableImageCard(
                 imageModel = { imageUrl },
                 modifier = Modifier
                     .fillMaxWidth()
-                    .aspectRatio(16 / 10f), // Resmin oranını ayarlayabilirsiniz
+                    .aspectRatio(16 / 9.5f),
                 imageOptions = ImageOptions(
                     contentScale = ContentScale.FillBounds,
                 )

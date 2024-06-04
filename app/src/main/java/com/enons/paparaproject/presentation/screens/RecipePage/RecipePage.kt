@@ -6,5 +6,4 @@ import androidx.navigation.NavController
 @Composable
 fun RecipePage(navController: NavController) {
 
-
 }
