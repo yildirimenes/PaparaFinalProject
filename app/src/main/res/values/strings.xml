@@ -6,6 +6,9 @@
     <string name="chat_ai_page">ChatAI Screen</string>
     <string name="suggest_page">Suggest Screen</string>
     <string name="favorite_page">Favorite Screen</string>
+    
+    // Message
+    <string name="try_again">Try Again</string>
 
 
 </resources>

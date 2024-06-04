@@ -2,8 +2,10 @@ package com.enons.paparaproject.presentation.components
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -42,6 +44,7 @@ fun ClickableImageCard(
                     contentScale = ContentScale.FillBounds,
                 )
             )
+            Spacer(modifier = Modifier.height(8.dp))
             Text(
                 text = text,
                 fontSize = 16.sp,
