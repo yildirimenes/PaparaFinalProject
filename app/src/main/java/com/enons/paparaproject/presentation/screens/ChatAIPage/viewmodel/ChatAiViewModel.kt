@@ -1,0 +1,61 @@
+package com.enons.paparaproject.presentation.screens.ChatAIPage.viewmodel
+
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.enons.paparaproject.core.ApiResult.ApiResult
+import com.enons.paparaproject.data.remote.dto.Message
+import com.enons.paparaproject.data.remote.dto.MessageResponse
+import com.enons.paparaproject.data.repository.MealRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.launch
+import javax.inject.Inject
+
+@HiltViewModel
+class ChatAiViewModel @Inject constructor(
+    private val mealRepository: MealRepository,
+) : ViewModel() {
+
+    private val _chatState = MutableStateFlow(ChatAiState())
+    val chatState: StateFlow<ChatAiState> = _chatState
+    private val list = _chatState.value.messageList.toMutableList()
+
+    init {
+        // Add initial system message
+        val initialSystemMessage = Message(
+            content = "You are a chef and can only provide information about recipes and cooking. If asked about other topics, politely inform that you can only discuss food and cooking.",
+            role = "system"
+        )
+        list.add(MessageResponse(message = initialSystemMessage))
+    }
+
+    fun sendMessage(text: String) {
+        val message = Message(content = text, role = "user")
+        list.add(MessageResponse(message = message))
+        updateChatState()
+
+        viewModelScope.launch {
+            mealRepository.sendMessageOpenAi(list.map { it.message }).collect { result ->
+                when (result) {
+                    is ApiResult.Loading -> {
+                        _chatState.value = _chatState.value.copy(isLoading = true)
+                    }
+                    is ApiResult.Success -> {
+                        val response = result.data.choices
+                        list.add(response[0])
+                        updateChatState()
+                    }
+                    is ApiResult.Error -> {
+                        _chatState.value = _chatState.value.copy(error = result.message, isLoading = false)
+                    }
+                }
+            }
+        }
+    }
+
+    private fun updateChatState() {
+        val filteredList = list.filter { it.message.role != "system" }
+        _chatState.value = ChatAiState(messageList = filteredList)
+    }
+}

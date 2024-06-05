@@ -32,7 +32,7 @@ fun Navigation(navController: NavHostController) {
             RandomRecipePage(navController)
         }
         composable(Screen.ChatAiScreen.route) {
-            ChatAiPage(navController)
+            ChatAiPage(navController = navController)
         }
         composable(Screen.FavoriteScreen.route) {
             FavoritePage(navController)
