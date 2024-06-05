@@ -9,5 +9,8 @@
     <string name="favorite_page">Favoriler Sayfası</string>
 
     // Message
+    <string name="hello">Selam,</string>
     <string name="try_again">Try Again</string>
+    <string name="chat_ai_hello_message">Bugün Ne Yemek İstersin?</string>
+
 </resources>

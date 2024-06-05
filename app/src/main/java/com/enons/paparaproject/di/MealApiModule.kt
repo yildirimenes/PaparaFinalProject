@@ -10,11 +10,12 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-abstract class RepositoryModule {
+abstract class MealApiModule {
 
     @Binds
     @Singleton
     abstract fun bindMealRepository(
         mealRepositoryImpl: MealRepositoryImpl
     ): MealRepository
+
 }

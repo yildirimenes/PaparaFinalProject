@@ -13,7 +13,7 @@ fun LoadingComponent() {
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally) {
-        LoadingProgress()
+        //LoadingProgress()
     }
 }
 

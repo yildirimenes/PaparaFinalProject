@@ -9,8 +9,15 @@ import com.enons.paparaproject.navigation.Navigation
 import com.enons.paparaproject.presentation.ui.theme.PaparaFinalProjectTheme
 import dagger.hilt.android.AndroidEntryPoint
 
+
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+    companion object {
+        init {
+            System.loadLibrary("paparaproject")
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -22,6 +29,11 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+private external fun getApiKeyFromNdk(): String
+
+fun getApiKey() : String {
+    return getApiKeyFromNdk()
+}
 
 @Preview(showBackground = true)
 @Composable
