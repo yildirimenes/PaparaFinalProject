@@ -21,7 +21,7 @@ fun CustomSuggestCard(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     shape: Shape = RoundedCornerShape(8.dp),
-    textColor: Color = MaterialTheme.colorScheme.onPrimaryContainer,
+    textColor: Color = Color.DarkGray,
     containerColor: Color = colorResource(id = R.color.color_three)
 ) {
     Card(

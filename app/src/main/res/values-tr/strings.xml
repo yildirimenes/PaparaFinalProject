@@ -3,10 +3,10 @@
     <string name="app_name">Recipe Box</string>
 
     //Card Component Name
-    <string name="recipe_page">Tarif Sayfası</string>
-    <string name="chat_ai_page">ChatAI Sayfası</string>
-    <string name="suggest_page">Öneri Sayfası</string>
-    <string name="favorite_page">Favoriler Sayfası</string>
+    <string name="recipe_page">Yemek Tarifi</string>
+    <string name="chat_ai_page">ChatAI</string>
+    <string name="suggest_page">Yemek Önerisi</string>
+    <string name="favorite_page">Fovori Yemekler</string>
 
     // Message
     <string name="hello">Selam,</string>

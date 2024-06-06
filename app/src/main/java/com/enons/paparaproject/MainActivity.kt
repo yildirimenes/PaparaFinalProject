@@ -34,11 +34,3 @@ private external fun getApiKeyFromNdk(): String
 fun getApiKey() : String {
     return getApiKeyFromNdk()
 }
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    PaparaFinalProjectTheme {
-        Navigation(rememberNavController())
-    }
-}

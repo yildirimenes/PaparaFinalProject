@@ -56,7 +56,7 @@ fun ChatAiPage(
             TopAppBar(
                 title = {
                     CustomText(
-                        stringResource(id = R.string.recipe_page),
+                        stringResource(id = R.string.chat_ai_page),
                         padding = 4
                     )
                 },
@@ -122,7 +122,9 @@ fun ChatAiPage(
             if(chatState.isLoading){
                 LoadingComponents(modifier = Modifier.padding(12.dp))
             }
-            SendAiField { message ->
+            SendAiField(
+                modifier.padding(12.dp)
+            ) { message ->
                 viewModel.sendMessage(message)
             }
         }

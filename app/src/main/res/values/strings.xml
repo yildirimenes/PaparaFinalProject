@@ -2,10 +2,10 @@
     <string name="app_name">Recipe Box</string>
 
     //Card Component Name
-    <string name="recipe_page">Recipe Screen</string>
-    <string name="chat_ai_page">ChatAI Screen</string>
-    <string name="suggest_page">Suggest Screen</string>
-    <string name="favorite_page">Favorite Screen</string>
+    <string name="recipe_page">Recipe Meal</string>
+    <string name="chat_ai_page">ChatAI</string>
+    <string name="suggest_page">Suggestion Meal</string>
+    <string name="favorite_page">Favorite Meal</string>
     
     // Message
     <string name="hello">Hello,</string>
