@@ -13,4 +13,11 @@
     <string name="try_again">Try Again</string>
     <string name="chat_ai_hello_message">Bugün Ne Yemek İstersin?</string>
 
+    //AlertDialog
+    <string name="confirm">Eminim</string>
+    <string name="dismiss">İptal</string>
+    <string name="delete">Sil</string>
+    <string name="delete_operation">Bu tarifi silmek istediğinize onaylıyor musunuz ?</string>
+
+
 </resources>
