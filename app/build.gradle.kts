@@ -1,7 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    kotlin("plugin.serialization") version "1.8.20"
+    //kotlin("plugin.serialization") version "1.8.20"
     id("kotlin-kapt")
     id("dagger.hilt.android.plugin")
     id("com.google.dagger.hilt.android")
@@ -14,7 +14,7 @@ android {
     defaultConfig {
         applicationId = "com.enons.paparaproject"
         minSdk = 26
-        targetSdk = 34
+        targetSdk = 33
         versionCode = 1
         versionName = "1.0"
 
@@ -123,4 +123,22 @@ dependencies {
     //Lottie
     implementation ("com.airbnb.android:lottie-compose:6.3.0")
 
+    //Room
+    implementation("androidx.room:room-runtime:2.5.2")
+    implementation ("androidx.room:room-ktx:2.5.2")
+    kapt("androidx.room:room-compiler:2.5.2")
+
+
+    //Sqlite
+    implementation("androidx.sqlite:sqlite:2.2.6")
+
+    //Preferences DataStore
+    implementation("androidx.datastore:datastore-preferences:1.0.0")
+
+
+}
+
+kapt {
+    correctErrorTypes = true
+    useBuildCache = true
 }

@@ -4,8 +4,10 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.enons.paparaproject.data.local.model.MealEntity
 import com.enons.paparaproject.data.repository.MealRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -48,4 +50,17 @@ class RecipeViewModel @Inject constructor(
             }
         }
     }
+
+    fun insertMessage(message: MealEntity) {
+        viewModelScope.launch(Dispatchers.IO) {
+            mealRepository.insertRecipe(message)
+        }
+    }
+
+    fun deleteMessage(message: MealEntity) {
+        viewModelScope.launch(Dispatchers.IO) {
+            mealRepository.deleteRecipe(message)
+        }
+    }
+
 }

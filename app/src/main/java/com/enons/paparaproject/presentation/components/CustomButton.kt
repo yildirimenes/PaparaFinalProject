@@ -38,3 +38,4 @@ fun CustomButton(modifier: Modifier, sendButtonClicked: () -> Unit) {
         modifier = modifier
     )
 }
+

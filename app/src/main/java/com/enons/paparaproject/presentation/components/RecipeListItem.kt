@@ -16,16 +16,20 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconToggleButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -37,14 +41,25 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.AsyncImage
 import com.enons.paparaproject.R
+import com.enons.paparaproject.data.local.mapper.toMealEntity
 import com.enons.paparaproject.data.remote.dto.Meal
+import com.enons.paparaproject.presentation.screens.RecipePage.viewmodel.RecipeViewModel
 
 @Composable
-fun RecipeListItem(meal: Meal) {
+fun RecipeListItem(
+    meal: Meal? = null,
+    viewModel: RecipeViewModel = hiltViewModel()) {
     var expanded by remember { mutableStateOf(false) }
     val context = LocalContext.current
+
+    var isFavorite by rememberSaveable {
+        mutableStateOf(
+            meal?.toMealEntity()?.isFavorite ?: false
+        )
+    }
 
     Card(
         modifier = Modifier
@@ -59,7 +74,7 @@ fun RecipeListItem(meal: Meal) {
         Column(
             modifier = Modifier.padding(8.dp)
         ) {
-            if (!meal.strMealThumb.isNullOrEmpty()) {
+            if (!meal?.strMealThumb.isNullOrEmpty()) {
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -68,20 +83,53 @@ fun RecipeListItem(meal: Meal) {
                         .padding(bottom = 8.dp)
                 ) {
                     AsyncImage(
-                        model = meal.strMealThumb,
+                        model = meal?.strMealThumb,
                         contentDescription = "thumbnail",
                         contentScale = ContentScale.Crop,
                         modifier = Modifier.fillMaxSize()
                     )
+                    IconToggleButton(
+                        checked = isFavorite,
+                        onCheckedChange = {
+                            isFavorite = !isFavorite
+                            if (meal != null) {
+                                if (isFavorite) {
+                                    viewModel.insertMessage(
+                                        meal.toMealEntity().copy(isFavorite = true)
+                                    )
+                                } else {
+                                    viewModel.deleteMessage(
+                                        meal.toMealEntity().copy(isFavorite = false)
+                                    )
+                                }
+                            }
+                        },
+                        modifier = Modifier
+                            .size(48.dp)
+                            .padding(8.dp)
+                            .align(Alignment.TopEnd)
+                    ) {
+                        Icon(
+                            modifier = Modifier,
+                            tint = Color.Red,
+                            imageVector = if (isFavorite) {
+                                Icons.Filled.Favorite
+                            } else {
+                                Icons.Default.FavoriteBorder
+                            },
+                            contentDescription = null
+                        )
+                    }
                     Image(
                         painter = painterResource(id = R.drawable.youtube_logo),
                         contentDescription = "",
                         modifier = Modifier
                             .align(Alignment.BottomEnd)
-                            .padding(8.dp,8.dp,8.dp,2.dp)
+                            .padding(8.dp, 8.dp, 8.dp, 2.dp)
                             .size(60.dp)
                             .clickable {
-                                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(meal.strYoutube))
+                                val intent =
+                                    Intent(Intent.ACTION_VIEW, Uri.parse(meal!!.strYoutube))
                                 context.startActivity(intent)
                             }
                     )
@@ -89,7 +137,7 @@ fun RecipeListItem(meal: Meal) {
             }
             Spacer(modifier = Modifier.padding(4.dp))
             Text(
-                text = meal.strMeal ?: "",
+                text = meal?.strMeal ?: "",
                 fontSize = 24.sp,
                 fontWeight = FontWeight.Bold
             )
@@ -101,7 +149,7 @@ fun RecipeListItem(meal: Meal) {
                 fontWeight = FontWeight.SemiBold
             )
             Text(
-                text = getIngredients(meal)
+                text = getIngredients(meal!!)
             )
             Spacer(modifier = Modifier.padding(8.dp))
 
@@ -139,6 +187,7 @@ fun RecipeListItem(meal: Meal) {
         }
     }
 }
+
 
 fun getIngredients(meal: Meal): String {
     var ingredients = ""

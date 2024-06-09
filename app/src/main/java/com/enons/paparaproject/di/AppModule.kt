@@ -15,7 +15,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object NetworkModule {
+object AppModule {
 
     @Provides
     @Singleton
@@ -58,25 +58,4 @@ object NetworkModule {
     fun provideOpenAiApiService(@Named("OpenAiRetrofit") retrofit: Retrofit): OpenAiApi {
         return retrofit.create(OpenAiApi::class.java)
     }
-
-
-
-
-
-
-//    @Provides
-//    @Singleton
-//    fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
-//        return Retrofit.Builder()
-//            .baseUrl("https://www.themealdb.com/api/json/v1/1/")
-//            .client(okHttpClient)
-//            .addConverterFactory(GsonConverterFactory.create())
-//            .build()
-//    }
-//
-//    @Provides
-//    @Singleton
-//    fun provideMealApiService(retrofit: Retrofit): MealApi {
-//        return retrofit.create(MealApi::class.java)
-//    }
 }
