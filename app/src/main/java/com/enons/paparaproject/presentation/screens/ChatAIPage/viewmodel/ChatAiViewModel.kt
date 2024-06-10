@@ -17,45 +17,58 @@ class ChatAiViewModel @Inject constructor(
     private val mealRepository: MealRepository,
 ) : ViewModel() {
 
-    private val _chatState = MutableStateFlow(ChatAiState())
+    private val _chatState = MutableStateFlow<ChatAiState>(ChatAiState.Loading)
     val chatState: StateFlow<ChatAiState> = _chatState
-    private val list = _chatState.value.messageList.toMutableList()
+    private val messageList = mutableListOf<MessageResponse>()
 
-    init {
+    fun initialize() {
         // Add initial system message
         val initialSystemMessage = Message(
             content = "You are a chef and can only provide information about recipes and cooking. If asked about other topics, politely inform that you can only discuss food and cooking.",
             role = "system"
         )
-        list.add(MessageResponse(message = initialSystemMessage))
+        messageList.add(MessageResponse(message = initialSystemMessage))
+        updateChatState()
     }
 
     fun sendMessage(text: String) {
         val message = Message(content = text, role = "user")
-        list.add(MessageResponse(message = message))
+        messageList.add(MessageResponse(message = message))
         updateChatState()
 
         viewModelScope.launch {
-            mealRepository.sendMessageOpenAi(list.map { it.message }).collect { result ->
-                when (result) {
-                    is ApiResult.Loading -> {
-                        _chatState.value = _chatState.value.copy(isLoading = true)
-                    }
-                    is ApiResult.Success -> {
-                        val response = result.data.choices
-                        list.add(response[0])
-                        updateChatState()
-                    }
-                    is ApiResult.Error -> {
-                        _chatState.value = _chatState.value.copy(error = result.message, isLoading = false)
+            try {
+                mealRepository.sendMessageOpenAi(messageList.map { it.message }).collect { result ->
+                    when (result) {
+                        is ApiResult.Loading -> {
+                            _chatState.value = ChatAiState.Loading
+                        }
+                        is ApiResult.Success -> {
+                            val response = result.data.choices
+                            messageList.add(response[0])
+                            updateChatState()
+                        }
+                        is ApiResult.Error -> {
+                            _chatState.value = ChatAiState.Error("Error fetching chat response")
+                        }
                     }
                 }
+            } catch (e: Exception) {
+                _chatState.value = ChatAiState.Error("No internet connection")
             }
         }
     }
 
+    fun retryLastMessage() {
+        val lastUserMessage = messageList.lastOrNull { it.message.role == "user" }?.message?.content
+        lastUserMessage?.let {
+            sendMessage(it)
+        }
+    }
+
     private fun updateChatState() {
-        val filteredList = list.filter { it.message.role != "system" }
-        _chatState.value = ChatAiState(messageList = filteredList)
+        val filteredList = messageList.filter { it.message.role != "system" }
+        _chatState.value = ChatAiState.Success(messageList = filteredList)
     }
 }
+

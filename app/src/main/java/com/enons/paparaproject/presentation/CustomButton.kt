@@ -1,4 +1,4 @@
-package com.halilkrkn.chatchef.presentation.components
+package com.enons.paparaproject.presentation
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.size
@@ -38,4 +38,3 @@ fun CustomButton(modifier: Modifier, sendButtonClicked: () -> Unit) {
         modifier = modifier
     )
 }
-

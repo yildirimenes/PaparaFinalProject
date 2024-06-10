@@ -1,5 +1,6 @@
 package com.enons.paparaproject.presentation.screens.ChatAIPage
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -16,9 +17,9 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
@@ -36,11 +37,14 @@ import com.enons.paparaproject.presentation.components.CustomSubTitleText
 import com.enons.paparaproject.presentation.components.SendAiField
 import com.enons.paparaproject.presentation.components.CustomText
 import com.enons.paparaproject.presentation.components.CustomTitleText
+import com.enons.paparaproject.presentation.components.ErrorComponent
 import com.enons.paparaproject.presentation.components.LoadingComponents
 import com.enons.paparaproject.presentation.components.UserChatMessage
 import com.enons.paparaproject.presentation.screens.ChatAIPage.utils.suggestions
+import com.enons.paparaproject.presentation.screens.ChatAIPage.viewmodel.ChatAiState
 import com.enons.paparaproject.presentation.screens.ChatAIPage.viewmodel.ChatAiViewModel
 
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ChatAiPage(
@@ -50,6 +54,10 @@ fun ChatAiPage(
 ) {
     val chatState by viewModel.chatState.collectAsState()
     val randomSuggestions = remember { suggestions.shuffled().take(5) }
+
+    LaunchedEffect(Unit) {
+        viewModel.initialize()
+    }
 
     Scaffold(
         topBar = {
@@ -67,66 +75,82 @@ fun ChatAiPage(
                 },
             )
         },
-
-        ) { it ->
-
+    ) { paddingValues ->
         Column(
             modifier = modifier
                 .fillMaxSize()
-                .padding(it),
+                .padding(paddingValues),
         ) {
-
             Spacer(modifier = Modifier.height(8.dp))
 
-            if (chatState.error.isNotBlank()) {
-                Text(text = chatState.error)
-            }
-
-            LazyColumn(
-                modifier = Modifier
-                    .weight(1f),
-                reverseLayout = true
-            ) {
-                items(chatState.messageList.reversed()) { messageItem ->
-                    if (messageItem.message.isUser) {
-                        UserChatMessage(text = messageItem.message.content, horizontalAlignment = Alignment.End)
-                    } else {
-                        AIChatMessage(
-                            message = messageItem.message
-                        )
+            when (chatState) {
+                is ChatAiState.Success -> {
+                    val messages = (chatState as ChatAiState.Success).messageList
+                    LazyColumn(
+                        modifier = Modifier
+                            .weight(1f)
+                            .fillMaxWidth(),
+                        reverseLayout = true
+                    ) {
+                        items(messages.reversed()) { messageItem ->
+                            if (messageItem.message.isUser) {
+                                UserChatMessage(text = messageItem.message.content, horizontalAlignment = Alignment.End)
+                            } else {
+                                AIChatMessage(message = messageItem.message)
+                            }
+                        }
+                    }
+                    if (messages.isEmpty()) {
+                        Spacer(modifier = Modifier.height(8.dp))
+                        CustomTitleText(stringResource(id = R.string.hello))
+                        CustomSubTitleText(stringResource(id = R.string.chat_ai_hello_message))
+                        Spacer(modifier = Modifier.height(250.dp))
+                        LazyRow(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(18.dp),
+                            horizontalArrangement = Arrangement.SpaceEvenly
+                        ) {
+                            items(randomSuggestions) { suggestion ->
+                                CustomSuggestCard(
+                                    suggestion = suggestion,
+                                    onClick = { viewModel.sendMessage(suggestion) },
+                                    modifier = Modifier.weight(1f),
+                                    textColor = Color.DarkGray,
+                                )
+                            }
+                        }
                     }
                 }
-            }
-            if (chatState.messageList.isEmpty()) {
-                Spacer(modifier = Modifier.height(8.dp))
-                CustomTitleText(stringResource(id = R.string.hello))
-                CustomSubTitleText(stringResource(id = R.string.chat_ai_hello_message))
-                Spacer(modifier = Modifier.height(250.dp))
-                LazyRow(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(18.dp),
-                    horizontalArrangement = Arrangement.SpaceEvenly
-                ) {
-                    items(randomSuggestions) { suggestion ->
-                        CustomSuggestCard(
-                            suggestion = suggestion,
-                            onClick = { viewModel.sendMessage(suggestion) },
-                            modifier = Modifier.weight(1f),
-                            textColor = Color.DarkGray,
-                        )
+                is ChatAiState.Error -> {
+                    val errorMessage = (chatState as ChatAiState.Error).message
+                    ErrorComponent(message = errorMessage, onRefreshClicked = {
+                        viewModel.retryLastMessage()
+                    })
+                }
+                is ChatAiState.Loading -> {
+                    //Spacer(modifier = Modifier.height())
+                    Column(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(end = 12.dp, bottom = 12.dp),
+                        verticalArrangement = Arrangement.Bottom,
+                        horizontalAlignment = Alignment.End
+                    ) {
+                        LoadingComponents(modifier = Modifier.padding(12.dp))
+
                     }
                 }
-            }
-
-            if(chatState.isLoading){
-                LoadingComponents(modifier = Modifier.padding(12.dp))
             }
             SendAiField(
-                modifier.padding(12.dp)
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(12.dp)
             ) { message ->
                 viewModel.sendMessage(message)
             }
+
         }
+
     }
 }
