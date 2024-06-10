@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.flow
 
 fun apiFlow(
     call : suspend () -> OpenAIResponse
-) = flow<ApiResult<OpenAIResponse>> {
+) = flow {
 
     emit(ApiResult.Loading)
     try {
