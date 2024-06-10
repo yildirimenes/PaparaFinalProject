@@ -124,6 +124,7 @@ fun FavoritePage(navController: NavController) {
                                 Spacer(modifier = Modifier.padding(4.dp))
                                 Text(
                                     text = meal.mealName,
+                                    color = colorResource(id = R.color.color_two),
                                     fontSize = 24.sp,
                                     fontWeight = FontWeight.Bold
                                 )
@@ -131,6 +132,7 @@ fun FavoritePage(navController: NavController) {
                                 Spacer(modifier = Modifier.padding(8.dp))
                                 Text(
                                     text = "Ingredients",
+                                    color = colorResource(id = R.color.color_one),
                                     fontSize = 20.sp,
                                     fontWeight = FontWeight.SemiBold
                                 )
@@ -138,11 +140,11 @@ fun FavoritePage(navController: NavController) {
                                     text = ingredients
                                 )
                                 Spacer(modifier = Modifier.padding(8.dp))
-
                                 AnimatedVisibility(visible = expanded) {
                                     Column {
                                         Text(
                                             text = "Instructions",
+                                            color = colorResource(id = R.color.color_one),
                                             fontSize = 20.sp,
                                             fontWeight = FontWeight.SemiBold
                                         )

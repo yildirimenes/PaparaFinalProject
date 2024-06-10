@@ -23,6 +23,7 @@ import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.IconToggleButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -37,6 +38,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -80,7 +82,7 @@ fun RecipeListItem(
                         .fillMaxWidth()
                         .height(200.dp)
                         .clip(RoundedCornerShape(8.dp))
-                        .padding(bottom = 8.dp)
+                        .padding(bottom = 4.dp)
                 ) {
                     AsyncImage(
                         model = meal?.strMealThumb,
@@ -106,7 +108,7 @@ fun RecipeListItem(
                         },
                         modifier = Modifier
                             .size(48.dp)
-                            .padding(8.dp)
+                            .padding(12.dp)
                             .align(Alignment.TopEnd)
                     ) {
                         Icon(
@@ -138,13 +140,19 @@ fun RecipeListItem(
             Spacer(modifier = Modifier.padding(4.dp))
             Text(
                 text = meal?.strMeal ?: "",
+                color = colorResource(id = R.color.color_two),
                 fontSize = 24.sp,
-                fontWeight = FontWeight.Bold
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.clickable {
+                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(meal!!.strSource))
+                    context.startActivity(intent)
+                }
             )
 
             Spacer(modifier = Modifier.padding(8.dp))
             Text(
                 text = "Ingredients",
+                color = colorResource(id = R.color.color_one),
                 fontSize = 20.sp,
                 fontWeight = FontWeight.SemiBold
             )
@@ -157,6 +165,8 @@ fun RecipeListItem(
                 Column {
                     Text(
                         text = "Instructions",
+                        color = colorResource(id = R.color.color_one),
+
                         fontSize = 20.sp,
                         fontWeight = FontWeight.SemiBold
                     )
