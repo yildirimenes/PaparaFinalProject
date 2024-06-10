@@ -39,7 +39,7 @@ fun ClickableImageCard(
                 imageModel = { imageUrl },
                 modifier = Modifier
                     .fillMaxWidth()
-                    .aspectRatio(16 / 9.5f),
+                    .aspectRatio(16 / 9f),
                 imageOptions = ImageOptions(
                     contentScale = ContentScale.FillBounds,
                 )
@@ -55,6 +55,7 @@ fun ClickableImageCard(
                     .fillMaxWidth(),
                 textAlign = TextAlign.Center
             )
+            Spacer(modifier = Modifier.height(8.dp))
         }
     }
 }

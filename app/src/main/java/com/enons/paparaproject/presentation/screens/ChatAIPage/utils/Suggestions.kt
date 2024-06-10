@@ -5,12 +5,12 @@ val suggestions = listOf(
     "Pratik yemek tarifleri öner",
     "Sütlü tatlı tarifleri",
     "Az kalorili tatlı tarifleri",
-    "Fastfood zinciri tavsiyesi",
-    "Kahveci tavsiye et",
     "Hesaplı yemek tarifi öner",
     "Az malzemeli yemek tarifi öner",
-    "Akşam yemeği için mekan önerisinde bulun",
     "Dünya mutfağından tarif öner",
     "Türk mutfağından tarif öner",
     "Italyan mutfağından tarif öner",
+    "Çorba tarifleri öner",
+    "Tavuklu Yemek tarifleri öner",
+    "Glutensiz yemek tarifleri öner"
 )

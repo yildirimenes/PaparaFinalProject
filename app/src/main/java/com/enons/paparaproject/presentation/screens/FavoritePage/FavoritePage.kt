@@ -42,7 +42,9 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.enons.paparaproject.R
 import com.enons.paparaproject.core.ApiResult.ApiResult
+import com.enons.paparaproject.data.local.model.MealEntity
 import com.enons.paparaproject.presentation.components.CustomText
+import com.enons.paparaproject.presentation.components.DeleteAlertDialog
 import com.enons.paparaproject.presentation.components.ErrorComponent
 import com.enons.paparaproject.presentation.components.LoadingComponent
 import com.enons.paparaproject.presentation.screens.FavoritePage.viewmodel.FavoriteViewModel
@@ -53,6 +55,9 @@ import com.enons.paparaproject.presentation.screens.FavoritePage.viewmodel.Favor
 fun FavoritePage(navController: NavController) {
     val viewModel: FavoriteViewModel = hiltViewModel()
     val favoriteMeals by viewModel.favoriteMeals.collectAsState()
+    var isDeleteDialogVisible by remember { mutableStateOf(false) }
+    var mealToDelete: MealEntity? by remember { mutableStateOf(null) }
+
 
     Scaffold(
         topBar = {
@@ -148,9 +153,22 @@ fun FavoritePage(navController: NavController) {
                                     modifier = Modifier.fillMaxWidth(),
                                     horizontalArrangement = Arrangement.End
                                 ) {
+                                    DeleteAlertDialog(
+                                        isDeleteDialogVisible = isDeleteDialogVisible,
+                                        onDismiss = {
+                                            isDeleteDialogVisible = false
+                                        },
+                                        onConfirm = {
+                                            mealToDelete?.let {
+                                                viewModel.removeFromFavorites(mealName = it.mealName)
+                                            }
+                                            isDeleteDialogVisible = false
+                                        }
+                                    )
                                     IconButton(
                                         onClick = {
-                                            viewModel.removeFromFavorites(mealName = meal.mealName)
+                                            isDeleteDialogVisible = true
+                                            mealToDelete = result.data.find { it.mealName == meal.mealName }
                                         }
                                     ) {
                                         Icon(Icons.Filled.Delete, contentDescription = "Delete")
@@ -179,7 +197,5 @@ fun FavoritePage(navController: NavController) {
             }
             is ApiResult.Loading -> { LoadingComponent() }
         }
-
-
     }
 }

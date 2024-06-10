@@ -8,6 +8,7 @@
     <string name="favorite_page">Favorite Meal</string>
     
     // Message
+    <string name="message">Message</string>
     <string name="hello">Hello,</string>
     <string name="try_again">Try Again</string>
     <string name="chat_ai_hello_message">What do you want to eat today?</string>

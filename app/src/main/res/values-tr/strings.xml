@@ -6,9 +6,10 @@
     <string name="recipe_page">Yemek Tarifi</string>
     <string name="chat_ai_page">ChatAI</string>
     <string name="suggest_page">Yemek Önerisi</string>
-    <string name="favorite_page">Fovori Yemekler</string>
+    <string name="favorite_page">Favori Yemekler</string>
 
     // Message
+    <string name="message">Mesaj</string>
     <string name="hello">Selam,</string>
     <string name="try_again">Try Again</string>
     <string name="chat_ai_hello_message">Bugün Ne Yemek İstersin?</string>
