@@ -1,16 +1,19 @@
 package com.enons.paparaproject.presentation.screens.ChatAIPage.utils
 
-val suggestions = listOf(
-    "Kahvaltılık tarifler öner.",
-    "Pratik yemek tarifleri öner",
-    "Sütlü tatlı tarifleri",
-    "Az kalorili tatlı tarifleri",
-    "Hesaplı yemek tarifi öner",
-    "Az malzemeli yemek tarifi öner",
-    "Dünya mutfağından tarif öner",
-    "Türk mutfağından tarif öner",
-    "Italyan mutfağından tarif öner",
-    "Çorba tarifleri öner",
-    "Tavuklu Yemek tarifleri öner",
-    "Glutensiz yemek tarifleri öner"
-)
+import com.enons.paparaproject.R
+fun getSuggestions(): List<Int> {
+    return listOf(
+        R.string.breakfast_recipes,
+        R.string.quick_recipes,
+        R.string.milk_desserts,
+        R.string.low_calorie_desserts,
+        R.string.budget_recipes,
+        R.string.few_ingredient_recipes,
+        R.string.world_cuisine_recipes,
+        R.string.turkish_cuisine_recipes,
+        R.string.italian_cuisine_recipes,
+        R.string.soup_recipes,
+        R.string.chicken_dishes,
+        R.string.gluten_free_recipes
+    )
+}

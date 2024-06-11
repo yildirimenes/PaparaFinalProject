@@ -40,7 +40,7 @@ import com.enons.paparaproject.presentation.components.CustomTitleText
 import com.enons.paparaproject.presentation.components.ErrorComponent
 import com.enons.paparaproject.presentation.components.LoadingComponents
 import com.enons.paparaproject.presentation.components.UserChatMessage
-import com.enons.paparaproject.presentation.screens.ChatAIPage.utils.suggestions
+import com.enons.paparaproject.presentation.screens.ChatAIPage.utils.getSuggestions
 import com.enons.paparaproject.presentation.screens.ChatAIPage.viewmodel.ChatAiState
 import com.enons.paparaproject.presentation.screens.ChatAIPage.viewmodel.ChatAiViewModel
 
@@ -53,7 +53,8 @@ fun ChatAiPage(
     viewModel: ChatAiViewModel = hiltViewModel(),
 ) {
     val chatState by viewModel.chatState.collectAsState()
-    val randomSuggestions = remember { suggestions.shuffled().take(5) }
+    val suggestions = remember { getSuggestions().shuffled().take(5) }
+    val suggestionStrings = suggestions.map { id -> stringResource(id) }
 
     LaunchedEffect(Unit) {
         viewModel.initialize()
@@ -111,7 +112,7 @@ fun ChatAiPage(
                                 .padding(18.dp),
                             horizontalArrangement = Arrangement.SpaceEvenly
                         ) {
-                            items(randomSuggestions) { suggestion ->
+                            items(suggestionStrings) { suggestion ->
                                 CustomSuggestCard(
                                     suggestion = suggestion,
                                     onClick = { viewModel.sendMessage(suggestion) },
@@ -119,8 +120,7 @@ fun ChatAiPage(
                                     textColor = Color.DarkGray,
                                 )
                             }
-                        }
-                    }
+                        }                    }
                 }
                 is ChatAiState.Error -> {
                     val errorMessage = (chatState as ChatAiState.Error).message
@@ -129,7 +129,6 @@ fun ChatAiPage(
                     })
                 }
                 is ChatAiState.Loading -> {
-                    //Spacer(modifier = Modifier.height())
                     Column(
                         modifier = Modifier
                             .fillMaxSize()

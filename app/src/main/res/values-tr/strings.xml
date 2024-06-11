@@ -20,5 +20,18 @@
     <string name="delete">Sil</string>
     <string name="delete_operation">Bu tarifi silmek istediğinize onaylıyor musunuz ?</string>
 
+    //Card Message
+    <string name="breakfast_recipes">Kahvaltılık tarifler öner.</string>
+    <string name="quick_recipes">Pratik yemek tarifleri öner</string>
+    <string name="milk_desserts">Sütlü tatlı tarifleri</string>
+    <string name="low_calorie_desserts">Az kalorili tatlı tarifleri</string>
+    <string name="budget_recipes">Hesaplı yemek tarifi öner</string>
+    <string name="few_ingredient_recipes">Az malzemeli yemek tarifi öner</string>
+    <string name="world_cuisine_recipes">Dünya mutfağından tarif öner</string>
+    <string name="turkish_cuisine_recipes">Türk mutfağından tarif öner</string>
+    <string name="italian_cuisine_recipes">Italyan mutfağından tarif öner</string>
+    <string name="soup_recipes">Çorba tarifleri öner</string>
+    <string name="chicken_dishes">Tavuklu Yemek tarifleri öner</string>
+    <string name="gluten_free_recipes">Glutensiz yemek tarifleri öner</string>
 
 </resources>

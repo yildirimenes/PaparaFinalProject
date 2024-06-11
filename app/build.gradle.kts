@@ -92,7 +92,6 @@ dependencies {
     //Navigation
     implementation("androidx.navigation:navigation-compose:2.7.4")
 
-
     //Coil
     implementation("io.coil-kt:coil-compose:2.4.0")
     implementation ("com.github.skydoves:landscapist-coil:2.3.1")
@@ -111,7 +110,6 @@ dependencies {
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 
-
     //Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
 
@@ -120,9 +118,6 @@ dependencies {
     kapt("com.google.dagger:hilt-android-compiler:2.44")
     kapt("androidx.hilt:hilt-compiler:1.1.0")
     implementation("androidx.hilt:hilt-navigation-compose:1.1.0")
-
-    //Lottie
-    implementation ("com.airbnb.android:lottie-compose:6.3.0")
 
     //Room
     implementation("androidx.room:room-runtime:2.5.2")

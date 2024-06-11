@@ -7,7 +7,7 @@
     <string name="suggest_page">Suggestion Meal</string>
     <string name="favorite_page">Favorite Meal</string>
     
-    // Message
+    //Message
     <string name="message">Message</string>
     <string name="hello">Hello,</string>
     <string name="try_again">Try Again</string>
@@ -19,8 +19,18 @@
     <string name="delete">Delete</string>
     <string name="delete_operation">Are you sure you want to delete this recipe?</string>
 
-
-
-
+    //Card Message
+    <string name="breakfast_recipes">Suggest breakfast recipes.</string>
+    <string name="quick_recipes">Suggest quick recipes.</string>
+    <string name="milk_desserts">Milk dessert recipes.</string>
+    <string name="low_calorie_desserts">Low-calorie dessert recipes.</string>
+    <string name="budget_recipes">Suggest budget recipes.</string>
+    <string name="few_ingredient_recipes">Suggest few-ingredient recipes.</string>
+    <string name="world_cuisine_recipes">Suggest recipes from world cuisine.</string>
+    <string name="turkish_cuisine_recipes">Suggest recipes from Turkish cuisine.</string>
+    <string name="italian_cuisine_recipes">Suggest recipes from Italian cuisine.</string>
+    <string name="soup_recipes">Suggest soup recipes.</string>
+    <string name="chicken_dishes">Suggest chicken dishes.</string>
+    <string name="gluten_free_recipes">Suggest gluten-free recipes.</string>
 
 </resources>
