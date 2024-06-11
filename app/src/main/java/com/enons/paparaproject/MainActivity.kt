@@ -11,7 +11,7 @@ import androidx.work.WorkManager
 import com.enons.paparaproject.navigation.Navigation
 import com.enons.paparaproject.presentation.screens.HomePage.viewmodel.HomePageViewModel
 import com.enons.paparaproject.presentation.ui.theme.PaparaFinalProjectTheme
-import com.enons.paparaproject.service.MealWorker
+import com.enons.paparaproject.service.NotificationWorker
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.concurrent.TimeUnit
 
@@ -38,19 +38,15 @@ class MainActivity : ComponentActivity() {
                 Navigation(navController = navController)
             }
         }
-        setupWorkManager()
+        scheduleNotificationWork()
     }
-    private fun setupWorkManager() {
-        val workRequest = PeriodicWorkRequestBuilder<MealWorker>(24, TimeUnit.HOURS)
+
+    private fun scheduleNotificationWork() {
+        val notificationWorkRequest = PeriodicWorkRequestBuilder<NotificationWorker>(24, TimeUnit.HOURS)
             .build()
 
-        WorkManager.getInstance(this@MainActivity.applicationContext).enqueueUniquePeriodicWork(
-            "MealWorker",
-            ExistingPeriodicWorkPolicy.KEEP,
-            workRequest
-        )
+        WorkManager.getInstance(this).enqueue(notificationWorkRequest)
     }
-
 }
 
 private external fun getApiKeyFromNdk(): String

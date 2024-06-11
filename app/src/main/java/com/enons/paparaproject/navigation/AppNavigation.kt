@@ -17,8 +17,8 @@ sealed class Screen(val route: String) {
     object RandomRecipePage : Screen("random_recipe_screen")
     object ChatAiScreen : Screen("chat_ai_screen")
     object FavoriteScreen : Screen("favorite_screen")
-    object LatestRecipePage : Screen("latest_recipe_screen")
-
+    object LatestScreen : Screen("latest_screen")
+    object LatestRecipePage : Screen("latestRecipePage")
 }
 
 @Composable
@@ -38,6 +38,12 @@ fun Navigation(navController: NavHostController) {
         }
         composable(Screen.FavoriteScreen.route) {
             FavoritePage(navController)
+        }
+        composable(Screen.LatestScreen.route) {
+            LatestRecipePage()
+        }
+        composable(Screen.LatestRecipePage.route) {
+            LatestRecipePage()
         }
     }
 
