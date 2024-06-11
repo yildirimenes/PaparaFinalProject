@@ -5,10 +5,15 @@ import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.compose.rememberNavController
+import androidx.work.ExistingPeriodicWorkPolicy
+import androidx.work.PeriodicWorkRequestBuilder
+import androidx.work.WorkManager
 import com.enons.paparaproject.navigation.Navigation
 import com.enons.paparaproject.presentation.screens.HomePage.viewmodel.HomePageViewModel
 import com.enons.paparaproject.presentation.ui.theme.PaparaFinalProjectTheme
+import com.enons.paparaproject.service.MealWorker
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.concurrent.TimeUnit
 
 
 @AndroidEntryPoint
@@ -33,7 +38,19 @@ class MainActivity : ComponentActivity() {
                 Navigation(navController = navController)
             }
         }
+        setupWorkManager()
     }
+    private fun setupWorkManager() {
+        val workRequest = PeriodicWorkRequestBuilder<MealWorker>(24, TimeUnit.HOURS)
+            .build()
+
+        WorkManager.getInstance(this@MainActivity.applicationContext).enqueueUniquePeriodicWork(
+            "MealWorker",
+            ExistingPeriodicWorkPolicy.KEEP,
+            workRequest
+        )
+    }
+
 }
 
 private external fun getApiKeyFromNdk(): String
@@ -41,3 +58,6 @@ private external fun getApiKeyFromNdk(): String
 fun getApiKey() : String {
     return getApiKeyFromNdk()
 }
+
+
+
