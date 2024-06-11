@@ -30,10 +30,9 @@ This project is trying to use the latest Android tech stacks.
 - Others:
   - [Jetpack Compose Extensions](https://google.github.io/accompanist)
   - [SplashScreen](https://developer.android.com/develop/ui/views/launch/splash-screen)
-  - [Admob](https://admob.google.com/intl/tr/home/)
-  - [Google Play Review](https://developer.android.com/guide/playcore/in-app-review)
   - [ChatGPT](https://openai.com/)
   - [Firebase Notification](https://firebase.google.com/docs/cloud-messaging?hl=tr)
+  - [Application Security](https://medium.com/programming-lite/securing-api-keys-in-android-app-using-ndk-native-development-kit-7aaa6c0176be)
 
 ## API Used
 
@@ -70,6 +69,13 @@ This project is trying to use the latest Android tech stacks.
 ### If You Want to Use the App on an Android Phone:
 
 * You can download the apk file of the app by clicking [here](https://drive.google.com/drive/folders/1x-RKA3PTVTkzYobFnk5Q6EnWSqy8-QSx) and install the app on your phone.
+
+### Presentation Link:
+
+* [here](https://drive.google.com/drive/folders/1f6jMQZEX6aC9vNM-LnhMJzkuz-Z1FjWS)
+
+### Video Link:
+* [here]()
 
 ## Clone Project
 
