@@ -35,6 +35,11 @@ class MealRepositoryImpl @Inject constructor(
         return apiService.searchRecipe(query).meals
     }
 
+    override suspend fun getLatestRecipe(): List<Meal> {
+        return apiService.getLatestRecipe().meals
+    }
+
+
     // OpenAI API Operations
     override fun sendMessageOpenAi(
         list : List<Message>

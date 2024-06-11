@@ -1,4 +1,5 @@
 package com.enons.paparaproject.presentation.screens.HomePage
+import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -24,6 +25,7 @@ import com.enons.paparaproject.presentation.components.CustomText
 import com.enons.paparaproject.presentation.components.ImageSliders
 import com.enons.paparaproject.presentation.screens.HomePage.viewmodel.HomePageViewModel
 
+@SuppressLint("StateFlowValueCalledInComposition")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomePage(navController: NavController) {
@@ -62,7 +64,7 @@ fun HomePage(navController: NavController) {
                         .weight(1f)
                 ) {
                     ClickableImageCard(
-                        imageUrl = viewModel.imageUrls.value!![0],
+                        imageUrl = viewModel.imageUrls.value[0],
                         modifier = Modifier
                             .fillMaxWidth()
                             .weight(7f),
@@ -71,7 +73,7 @@ fun HomePage(navController: NavController) {
                     )
                     Spacer(modifier = Modifier.weight(1f))
                     ClickableImageCard(
-                        imageUrl = viewModel.imageUrls.value!![1],
+                        imageUrl = viewModel.imageUrls.value[1],
                         modifier = Modifier
                             .fillMaxWidth()
                             .weight(7f),
@@ -85,16 +87,18 @@ fun HomePage(navController: NavController) {
                         .weight(1f)
                 ) {
                     ClickableImageCard(
-                        imageUrl = viewModel.imageUrls.value!![2],
+                        imageUrl = viewModel.imageUrls.value[2],
                         modifier = Modifier
                             .fillMaxWidth()
                             .weight(7f),
                         text = stringResource(id = R.string.suggest_page),
-                        onClick = { navController.navigate(Screen.RandomRecipePage.route) },
-                    )
+                        //onClick = { navController.navigate(Screen.RandomRecipePage.route) },
+                        onClick = { navController.navigate(Screen.LatestRecipePage.route) },
+
+                        )
                     Spacer(modifier = Modifier.weight(1f))
                     ClickableImageCard(
-                        imageUrl = viewModel.imageUrls.value!![3],
+                        imageUrl = viewModel.imageUrls.value[3],
                         modifier = Modifier
                             .fillMaxWidth()
                             .weight(7f),

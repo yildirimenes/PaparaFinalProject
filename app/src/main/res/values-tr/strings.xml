@@ -7,6 +7,8 @@
     <string name="chat_ai_page">ChatAI</string>
     <string name="suggest_page">Yemek Önerisi</string>
     <string name="favorite_page">Favori Yemekler</string>
+    <string name="latest_page">Son Eklenen Yemekler</string>
+
 
     // Message
     <string name="message">Mesaj</string>
