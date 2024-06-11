@@ -6,6 +6,7 @@
     <string name="chat_ai_page">ChatAI</string>
     <string name="suggest_page">Suggestion Meal</string>
     <string name="favorite_page">Favorite Meal</string>
+    <string name="latest_page">Latest Meal</string>
     
     //Message
     <string name="message">Message</string>

@@ -12,6 +12,7 @@ interface MealRepository  {
     suspend fun getRandomRecipe(): List<Meal>
     suspend fun getFirstRecipe(): List<Meal>
     suspend fun searchRecipe(query: String): List<Meal>
+    suspend fun getLatestRecipe(): List<Meal>
 
     // OpenAI API Operations
     fun sendMessageOpenAi(

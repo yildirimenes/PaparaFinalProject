@@ -7,6 +7,7 @@ import androidx.navigation.compose.composable
 import com.enons.paparaproject.presentation.screens.ChatAIPage.ChatAiPage
 import com.enons.paparaproject.presentation.screens.FavoritePage.FavoritePage
 import com.enons.paparaproject.presentation.screens.HomePage.HomePage
+import com.enons.paparaproject.presentation.screens.LatestRecipePage.LatestRecipePage
 import com.enons.paparaproject.presentation.screens.RandomRecipePage.RandomRecipePage
 import com.enons.paparaproject.presentation.screens.RecipePage.RecipePage
 
@@ -16,6 +17,7 @@ sealed class Screen(val route: String) {
     object RandomRecipePage : Screen("random_recipe_screen")
     object ChatAiScreen : Screen("chat_ai_screen")
     object FavoriteScreen : Screen("favorite_screen")
+    object LatestRecipePage : Screen("latest_recipe_screen")
 
 }
 
@@ -37,7 +39,6 @@ fun Navigation(navController: NavHostController) {
         composable(Screen.FavoriteScreen.route) {
             FavoritePage(navController)
         }
-
     }
 
 }
