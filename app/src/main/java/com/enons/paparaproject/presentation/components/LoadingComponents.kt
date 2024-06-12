@@ -40,18 +40,18 @@ fun LoadingComponents(
         remember { Animatable(initialValue = 0f) }
     )
 
-    circles.forEachIndexed { index, animatable ->
-        LaunchedEffect(key1 = animatable) {
+    circles.forEachIndexed { index, animation ->
+        LaunchedEffect(key1 = animation) {
             delay(index * 100L)
-            animatable.animateTo(
+            animation.animateTo(
                 targetValue = 1f,
                 animationSpec = infiniteRepeatable(
                     animation = keyframes {
                         durationMillis = 1200
-                        0.0f at 0 with LinearOutSlowInEasing
-                        1.0f at 300 with LinearOutSlowInEasing
-                        0.0f at 600 with LinearOutSlowInEasing
-                        0.0f at 1200 with LinearOutSlowInEasing
+                        0.0f at 0 using LinearOutSlowInEasing
+                        1.0f at 300 using LinearOutSlowInEasing
+                        0.0f at 600 using LinearOutSlowInEasing
+                        0.0f at 1200 using LinearOutSlowInEasing
                     },
                     repeatMode = RepeatMode.Restart
                 )
@@ -68,7 +68,7 @@ fun LoadingComponents(
 
 
 
-    Row(modifier = modifier.fillMaxWidth(),) {
+    Row(modifier = modifier.fillMaxWidth()) {
         circleValues.forEachIndexed { index, value ->
             Box(
                 modifier = Modifier

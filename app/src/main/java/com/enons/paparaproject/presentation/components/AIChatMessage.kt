@@ -20,15 +20,12 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.hilt.navigation.compose.hiltViewModel
 import com.enons.paparaproject.data.remote.dto.Message
-import com.enons.paparaproject.presentation.screens.ChatAIPage.viewmodel.ChatAiViewModel
 
 @Composable
 fun AIChatMessage(
     modifier: Modifier = Modifier,
     message: Message? = null,
-    viewModel: ChatAiViewModel = hiltViewModel(),
     fontWeight: FontWeight = FontWeight.SemiBold,
     fontSize: TextUnit = 13.sp,
     fontFamily: FontFamily = FontFamily.Default,

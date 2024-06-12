@@ -1,4 +1,4 @@
-package com.enons.paparaproject.presentation
+package com.enons.paparaproject.presentation.components
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.size

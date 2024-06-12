@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1038844372232",
+    "project_id": "recipe-app-e7709",
+    "storage_bucket": "recipe-app-e7709.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1038844372232:android:bb13fcf5316c42f5d078bd",
+        "android_client_info": {
+          "package_name": "com.enons.paparaproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJbD75QCzF2Llf0l9RfmgQDkxl_bzE-_o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

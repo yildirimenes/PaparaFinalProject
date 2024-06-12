@@ -1,17 +1,17 @@
 package com.enons.paparaproject
+import android.content.Context
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.compose.rememberNavController
-import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import com.enons.paparaproject.navigation.Navigation
 import com.enons.paparaproject.presentation.screens.HomePage.viewmodel.HomePageViewModel
 import com.enons.paparaproject.presentation.ui.theme.PaparaFinalProjectTheme
-import com.enons.paparaproject.service.NotificationWorker
+import com.enons.paparaproject.service.RecipeWorker
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.concurrent.TimeUnit
 
@@ -38,15 +38,14 @@ class MainActivity : ComponentActivity() {
                 Navigation(navController = navController)
             }
         }
-        scheduleNotificationWork()
+        scheduleDailyRecipeNotification(applicationContext)
     }
-
-    private fun scheduleNotificationWork() {
-        val notificationWorkRequest = PeriodicWorkRequestBuilder<NotificationWorker>(24, TimeUnit.HOURS)
+    private fun scheduleDailyRecipeNotification(context: Context) {
+        val workRequest = PeriodicWorkRequestBuilder<RecipeWorker>(24, TimeUnit.HOURS)
             .build()
-
-        WorkManager.getInstance(this).enqueue(notificationWorkRequest)
+        WorkManager.getInstance(context).enqueue(workRequest)
     }
+
 }
 
 private external fun getApiKeyFromNdk(): String
