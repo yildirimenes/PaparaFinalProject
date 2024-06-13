@@ -83,7 +83,7 @@ This project is trying to use the latest Android tech stacks.
 * [here](https://drive.google.com/drive/folders/1f6jMQZEX6aC9vNM-LnhMJzkuz-Z1FjWS)
 
 ### Video Link:
-* [here]()
+* [here](https://www.loom.com/share/9a5b0bc303f146179b20e1bc9040923f)
 
 ## Clone Project
 
