@@ -1,4 +1,4 @@
-package com.enons.paparaproject.presentation.screens.RandomRecipePage
+package com.enons.paparaproject.presentation.screens.randomRecipePage
 
 import android.annotation.SuppressLint
 import androidx.compose.material.icons.Icons
@@ -18,8 +18,8 @@ import com.enons.paparaproject.R
 import com.enons.paparaproject.presentation.components.ErrorComponent
 import com.enons.paparaproject.presentation.components.LoadingComponent
 import com.enons.paparaproject.presentation.components.RandomSuccessComponent
-import com.enons.paparaproject.presentation.screens.RandomRecipePage.viewmodel.RandomRecipeViewModel
-import com.enons.paparaproject.presentation.screens.RandomRecipePage.viewmodel.RandomRecipeViewState
+import com.enons.paparaproject.presentation.screens.randomRecipePage.viewmodel.RandomRecipeViewModel
+import com.enons.paparaproject.presentation.screens.randomRecipePage.viewmodel.RandomRecipeViewState
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

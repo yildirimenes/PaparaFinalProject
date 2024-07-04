@@ -1,4 +1,4 @@
-package com.enons.paparaproject.presentation.screens.RecipePage.viewmodel
+package com.enons.paparaproject.presentation.screens.recipePage.viewmodel
 
 import com.enons.paparaproject.data.remote.dto.Meal
 

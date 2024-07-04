@@ -9,7 +9,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import com.enons.paparaproject.navigation.Navigation
-import com.enons.paparaproject.presentation.screens.HomePage.viewmodel.HomePageViewModel
+import com.enons.paparaproject.presentation.screens.homePage.viewmodel.HomePageViewModel
 import com.enons.paparaproject.presentation.ui.theme.PaparaFinalProjectTheme
 import com.enons.paparaproject.workers.RecipeWorker
 import dagger.hilt.android.AndroidEntryPoint

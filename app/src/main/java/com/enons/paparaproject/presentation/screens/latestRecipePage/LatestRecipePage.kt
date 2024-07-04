@@ -1,4 +1,4 @@
-package com.enons.paparaproject.presentation.screens.LatestRecipePage
+package com.enons.paparaproject.presentation.screens.latestRecipePage
 
 import android.annotation.SuppressLint
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -13,8 +13,8 @@ import com.enons.paparaproject.R
 import com.enons.paparaproject.presentation.components.ErrorComponent
 import com.enons.paparaproject.presentation.components.LoadingComponent
 import com.enons.paparaproject.presentation.components.RandomSuccessComponent
-import com.enons.paparaproject.presentation.screens.LatestRecipePage.viewmodel.LatestRecipeViewModel
-import com.enons.paparaproject.presentation.screens.LatestRecipePage.viewmodel.LatestRecipeViewState
+import com.enons.paparaproject.presentation.screens.latestRecipePage.viewmodel.LatestRecipeViewModel
+import com.enons.paparaproject.presentation.screens.latestRecipePage.viewmodel.LatestRecipeViewState
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)

@@ -1,4 +1,4 @@
-package com.enons.paparaproject.presentation.screens.RecipePage
+package com.enons.paparaproject.presentation.screens.recipePage
 import android.annotation.SuppressLint
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
@@ -18,9 +18,9 @@ import com.enons.paparaproject.presentation.components.CustomText
 import com.enons.paparaproject.presentation.components.ErrorComponent
 import com.enons.paparaproject.presentation.components.LoadingComponent
 import com.enons.paparaproject.presentation.components.RecipeSuccessComponent
-import com.enons.paparaproject.presentation.screens.RecipePage.viewmodel.RecipeViewIntent
-import com.enons.paparaproject.presentation.screens.RecipePage.viewmodel.RecipeViewModel
-import com.enons.paparaproject.presentation.screens.RecipePage.viewmodel.RecipeViewState
+import com.enons.paparaproject.presentation.screens.recipePage.viewmodel.RecipeViewIntent
+import com.enons.paparaproject.presentation.screens.recipePage.viewmodel.RecipeViewModel
+import com.enons.paparaproject.presentation.screens.recipePage.viewmodel.RecipeViewState
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)

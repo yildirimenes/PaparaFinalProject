@@ -1,4 +1,4 @@
-package com.enons.paparaproject.presentation.screens.ChatAIPage.utils
+package com.enons.paparaproject.presentation.screens.chatAiPage.utils
 
 import com.enons.paparaproject.R
 fun getSuggestions(): List<Int> {

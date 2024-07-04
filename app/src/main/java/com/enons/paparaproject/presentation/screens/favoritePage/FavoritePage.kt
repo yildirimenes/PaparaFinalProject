@@ -1,4 +1,4 @@
-package com.enons.paparaproject.presentation.screens.FavoritePage
+package com.enons.paparaproject.presentation.screens.favoritePage
 import android.annotation.SuppressLint
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.BorderStroke
@@ -49,7 +49,7 @@ import com.enons.paparaproject.presentation.components.CustomText
 import com.enons.paparaproject.presentation.components.DeleteAlertDialog
 import com.enons.paparaproject.presentation.components.ErrorComponent
 import com.enons.paparaproject.presentation.components.LoadingComponent
-import com.enons.paparaproject.presentation.screens.FavoritePage.viewmodel.FavoriteViewModel
+import com.enons.paparaproject.presentation.screens.favoritePage.viewmodel.FavoriteViewModel
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)

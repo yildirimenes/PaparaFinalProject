@@ -1,4 +1,4 @@
-package com.enons.paparaproject.presentation.screens.ChatAIPage
+package com.enons.paparaproject.presentation.screens.chatAiPage
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Arrangement
@@ -40,9 +40,9 @@ import com.enons.paparaproject.presentation.components.CustomTitleText
 import com.enons.paparaproject.presentation.components.ErrorComponent
 import com.enons.paparaproject.presentation.components.LoadingComponents
 import com.enons.paparaproject.presentation.components.UserChatMessage
-import com.enons.paparaproject.presentation.screens.ChatAIPage.utils.getSuggestions
-import com.enons.paparaproject.presentation.screens.ChatAIPage.viewmodel.ChatAiState
-import com.enons.paparaproject.presentation.screens.ChatAIPage.viewmodel.ChatAiViewModel
+import com.enons.paparaproject.presentation.screens.chatAiPage.utils.getSuggestions
+import com.enons.paparaproject.presentation.screens.chatAiPage.viewmodel.ChatAiState
+import com.enons.paparaproject.presentation.screens.chatAiPage.viewmodel.ChatAiViewModel
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)

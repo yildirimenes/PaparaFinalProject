@@ -1,4 +1,4 @@
-package com.enons.paparaproject.presentation.screens.HomePage.viewmodel
+package com.enons.paparaproject.presentation.screens.homePage.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

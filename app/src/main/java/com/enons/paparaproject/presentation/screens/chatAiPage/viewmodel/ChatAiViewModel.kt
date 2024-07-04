@@ -1,4 +1,4 @@
-package com.enons.paparaproject.presentation.screens.ChatAIPage.viewmodel
+package com.enons.paparaproject.presentation.screens.chatAiPage.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

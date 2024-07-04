@@ -22,10 +22,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.enons.paparaproject" />
+                  <option name="mobileSdkAppId" value="1:1038844372232:android:bb13fcf5316c42f5d078bd" />
+                  <option name="projectId" value="recipe-app-e7709" />
+                  <option name="projectNumber" value="1038844372232" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

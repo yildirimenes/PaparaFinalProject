@@ -1,4 +1,4 @@
-package com.enons.paparaproject.presentation.screens.HomePage
+package com.enons.paparaproject.presentation.screens.homePage
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -28,7 +28,7 @@ import com.enons.paparaproject.navigation.Screen
 import com.enons.paparaproject.presentation.components.ClickableImageCard
 import com.enons.paparaproject.presentation.components.CustomText
 import com.enons.paparaproject.presentation.components.ImageSliders
-import com.enons.paparaproject.presentation.screens.HomePage.viewmodel.HomePageViewModel
+import com.enons.paparaproject.presentation.screens.homePage.viewmodel.HomePageViewModel
 
 @SuppressLint("StateFlowValueCalledInComposition")
 @OptIn(ExperimentalMaterial3Api::class)

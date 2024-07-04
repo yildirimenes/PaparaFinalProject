@@ -47,7 +47,7 @@ import coil.compose.AsyncImage
 import com.enons.paparaproject.R
 import com.enons.paparaproject.data.local.mapper.toMealEntity
 import com.enons.paparaproject.data.remote.dto.Meal
-import com.enons.paparaproject.presentation.screens.RecipePage.viewmodel.RecipeViewModel
+import com.enons.paparaproject.presentation.screens.recipePage.viewmodel.RecipeViewModel
 
 @Composable
 fun RecipeListItem(

@@ -1,4 +1,4 @@
-package com.enons.paparaproject.presentation.screens.RandomRecipePage.viewmodel
+package com.enons.paparaproject.presentation.screens.randomRecipePage.viewmodel
 
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf

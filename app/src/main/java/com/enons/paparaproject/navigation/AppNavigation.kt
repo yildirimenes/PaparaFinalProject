@@ -4,12 +4,12 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.enons.paparaproject.presentation.screens.ChatAIPage.ChatAiPage
-import com.enons.paparaproject.presentation.screens.FavoritePage.FavoritePage
-import com.enons.paparaproject.presentation.screens.HomePage.HomePage
-import com.enons.paparaproject.presentation.screens.LatestRecipePage.LatestRecipePage
-import com.enons.paparaproject.presentation.screens.RandomRecipePage.RandomRecipePage
-import com.enons.paparaproject.presentation.screens.RecipePage.RecipePage
+import com.enons.paparaproject.presentation.screens.chatAiPage.ChatAiPage
+import com.enons.paparaproject.presentation.screens.favoritePage.FavoritePage
+import com.enons.paparaproject.presentation.screens.homePage.HomePage
+import com.enons.paparaproject.presentation.screens.latestRecipePage.LatestRecipePage
+import com.enons.paparaproject.presentation.screens.randomRecipePage.RandomRecipePage
+import com.enons.paparaproject.presentation.screens.recipePage.RecipePage
 
 sealed class Screen(val route: String) {
     object HomePage : Screen("homepage_screen")

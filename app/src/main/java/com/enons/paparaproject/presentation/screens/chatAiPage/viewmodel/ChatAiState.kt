@@ -1,4 +1,4 @@
-package com.enons.paparaproject.presentation.screens.ChatAIPage.viewmodel
+package com.enons.paparaproject.presentation.screens.chatAiPage.viewmodel
 
 import com.enons.paparaproject.data.remote.dto.MessageResponse
 sealed class ChatAiState {

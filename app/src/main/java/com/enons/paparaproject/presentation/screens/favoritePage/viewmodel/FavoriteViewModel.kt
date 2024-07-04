@@ -1,4 +1,4 @@
-package com.enons.paparaproject.presentation.screens.FavoritePage.viewmodel
+package com.enons.paparaproject.presentation.screens.favoritePage.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

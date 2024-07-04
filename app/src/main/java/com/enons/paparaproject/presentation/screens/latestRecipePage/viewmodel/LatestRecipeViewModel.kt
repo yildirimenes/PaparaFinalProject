@@ -1,4 +1,4 @@
-package com.enons.paparaproject.presentation.screens.LatestRecipePage.viewmodel
+package com.enons.paparaproject.presentation.screens.latestRecipePage.viewmodel
 
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
