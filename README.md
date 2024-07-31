@@ -58,19 +58,10 @@ This project is trying to use the latest Android tech stacks.
 <table>
   <tr>
   <td><img src="images/favorite_detail_page.png" width="250" ></td>
-  <td><img src="images/latest_meal_page.png" width="250"></td>
   <td><img src="images/notification_workmanager.jpeg" width="250"></td>
-
+    <td><img src="images/youtube_link_page.png" width="250"></td>
   </tr>
 </table>
-<table>
-  <tr>
-  <td><img src="images/youtube_link_page.png" width="250"></td>
-  <td><img src="images/meal_source_page.png" width="250"></td>
-  </tr>
-</table>
-
-
 
 ## Download
 
