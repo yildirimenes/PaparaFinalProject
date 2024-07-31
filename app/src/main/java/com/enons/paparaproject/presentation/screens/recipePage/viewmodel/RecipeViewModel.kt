@@ -5,7 +5,10 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.enons.paparaproject.data.local.model.MealEntity
-import com.enons.paparaproject.data.repository.MealRepository
+import com.enons.paparaproject.domain.useCase.network.DeleteRecipeUseCase
+import com.enons.paparaproject.domain.useCase.network.InsertRecipeUseCase
+import com.enons.paparaproject.domain.useCase.network.LoadFirstRecipeUseCase
+import com.enons.paparaproject.domain.useCase.network.SearchRecipesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -13,7 +16,10 @@ import javax.inject.Inject
 
 @HiltViewModel
 class RecipeViewModel @Inject constructor(
-    private val mealRepository: MealRepository
+    private val loadFirstRecipeUseCase: LoadFirstRecipeUseCase,
+    private val searchRecipesUseCase: SearchRecipesUseCase,
+    private val insertRecipeUseCase: InsertRecipeUseCase,
+    private val deleteRecipeUseCase: DeleteRecipeUseCase
 ) : ViewModel() {
 
     private val _state = mutableStateOf<RecipeViewState>(RecipeViewState.Loading)
@@ -29,9 +35,8 @@ class RecipeViewModel @Inject constructor(
     private fun loadFirstRecipe() {
         viewModelScope.launch {
             try {
-                _state.value = RecipeViewState.Success(
-                    mealRepository.getFirstRecipe()
-                )
+                val recipe = loadFirstRecipeUseCase()
+                _state.value = RecipeViewState.Success(recipe)
             } catch (e: Exception) {
                 _state.value = RecipeViewState.Error("Error fetching recipe")
             }
@@ -42,25 +47,23 @@ class RecipeViewModel @Inject constructor(
         viewModelScope.launch {
             _state.value = RecipeViewState.Loading
             try {
-                _state.value = RecipeViewState.Success(
-                    mealRepository.searchRecipe(query)
-                )
+                val recipes = searchRecipesUseCase(query)
+                _state.value = RecipeViewState.Success(recipes)
             } catch (e: Exception) {
                 _state.value = RecipeViewState.Error("Error fetching recipes")
             }
         }
     }
 
-    fun insertMessage(message: MealEntity) {
+    fun insertRecipe(recipe: MealEntity) {
         viewModelScope.launch(Dispatchers.IO) {
-            mealRepository.insertRecipe(message)
+            insertRecipeUseCase(recipe)
         }
     }
 
-    fun deleteMessage(message: MealEntity) {
+    fun deleteRecipe(recipe: MealEntity) {
         viewModelScope.launch(Dispatchers.IO) {
-            mealRepository.deleteRecipe(message)
+            deleteRecipeUseCase(recipe)
         }
     }
-
 }

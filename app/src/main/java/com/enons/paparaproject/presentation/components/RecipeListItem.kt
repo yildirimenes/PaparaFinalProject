@@ -95,11 +95,11 @@ fun RecipeListItem(
                             isFavorite = !isFavorite
                             if (meal != null) {
                                 if (isFavorite) {
-                                    viewModel.insertMessage(
+                                    viewModel.insertRecipe(
                                         meal.toMealEntity().copy(isFavorite = true)
                                     )
                                 } else {
-                                    viewModel.deleteMessage(
+                                    viewModel.deleteRecipe(
                                         meal.toMealEntity().copy(isFavorite = false)
                                     )
                                 }
