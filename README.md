@@ -93,8 +93,10 @@ This project is trying to use the latest Android tech stacks.
 git clone https://github.com/yildirimenes/PaparaFinalProject.git
 ```
 2. Open the cloned project in Android Studio.
+  
+3. Add app/src/main/cpp/paparaproject.cpp file your chat-gpt api key.
 
-3. Build and run the app on an emulator or a physical device.
+4. Build and run the app on an emulator or a physical device.
 
 
 ## License
