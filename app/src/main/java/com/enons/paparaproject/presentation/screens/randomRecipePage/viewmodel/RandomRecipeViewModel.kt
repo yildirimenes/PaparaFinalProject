@@ -4,7 +4,7 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.enons.paparaproject.data.repository.MealRepository
+import com.enons.paparaproject.domain.useCase.network.GetRandomRecipeUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -12,7 +12,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class RandomRecipeViewModel @Inject constructor(
-    private val mealRepository: MealRepository
+    private val getRandomRecipeUseCase: GetRandomRecipeUseCase
 ) : ViewModel() {
 
     private val _state = mutableStateOf<RandomRecipeViewState>(RandomRecipeViewState.Loading)
@@ -25,9 +25,8 @@ class RandomRecipeViewModel @Inject constructor(
     fun loadRandomRecipe() {
         viewModelScope.launch {
             try {
-                _state.value = RandomRecipeViewState.Success(
-                    mealRepository.getRandomRecipe()
-                )
+                val randomRecipes = getRandomRecipeUseCase()
+                _state.value = RandomRecipeViewState.Success(randomRecipes)
             } catch (e: Exception) {
                 _state.value = RandomRecipeViewState.Error("Error fetching random recipe")
             }
