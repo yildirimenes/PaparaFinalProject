@@ -49,18 +49,6 @@ fun HomePage(navController: NavController) {
                             text = stringResource(id = R.string.app_name),
                             padding = 8
                         )
-                        IconButton(
-                            onClick = {
-                                navController.navigate(Screen.LatestScreen.route)
-                            }
-                        ) {
-                            Icon(
-                                painter = painterResource(id = R.drawable.baseline_fiber_new_24),
-                                tint = Color.Gray,
-                                modifier = Modifier.size(36.dp),
-                                contentDescription = ""
-                            )
-                        }
                     }
                 }
             )
