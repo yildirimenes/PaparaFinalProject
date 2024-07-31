@@ -58,32 +58,16 @@ This project is trying to use the latest Android tech stacks.
 <table>
   <tr>
   <td><img src="images/favorite_detail_page.png" width="250" ></td>
-  <td><img src="images/latest_meal_page.png" width="250"></td>
   <td><img src="images/notification_workmanager.jpeg" width="250"></td>
-
+    <td><img src="images/youtube_link_page.png" width="250"></td>
   </tr>
 </table>
-<table>
-  <tr>
-  <td><img src="images/youtube_link_page.png" width="250"></td>
-  <td><img src="images/meal_source_page.png" width="250"></td>
-  </tr>
-</table>
-
-
 
 ## Download
 
 ### If You Want to Use the App on an Android Phone:
 
 * You can download the apk file of the app by clicking [here](https://drive.google.com/drive/folders/1x-RKA3PTVTkzYobFnk5Q6EnWSqy8-QSx) and install the app on your phone.
-
-### Presentation Link:
-
-* [here](https://drive.google.com/drive/folders/1f6jMQZEX6aC9vNM-LnhMJzkuz-Z1FjWS)
-
-### Video Link:
-* [here](https://www.loom.com/share/9a5b0bc303f146179b20e1bc9040923f)
 
 ## Clone Project
 
