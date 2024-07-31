@@ -7,7 +7,7 @@ buildscript {
 
 plugins {
     id("com.android.application") version "8.5.1" apply false
-    id("org.jetbrains.kotlin.android") version "1.9.22" apply false
-    id("com.google.dagger.hilt.android") version "2.46" apply false
+    id("org.jetbrains.kotlin.android") version "1.9.23" apply false
+    id("com.google.dagger.hilt.android") version "2.49" apply false
     id("com.google.gms.google-services") version "4.4.2" apply false
 }

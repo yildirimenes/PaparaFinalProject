@@ -51,7 +51,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.9"
+        kotlinCompilerExtensionVersion = "1.5.13"
     }
     packaging {
         resources {
@@ -75,8 +75,16 @@ dependencies {
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
-    implementation("androidx.compose.material3:material3:1.2.1")
-    implementation("androidx.compose.material3:material3")
+    implementation(libs.androidx.material3)
+    implementation(libs.material3)
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
+    androidTestImplementation(platform(libs.androidx.compose.bom))
+    androidTestImplementation(libs.androidx.ui.test.junit4)
+    debugImplementation(libs.ui.tooling)
+    debugImplementation(libs.androidx.ui.test.manifest)
+    /*
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
@@ -84,24 +92,16 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
-    /*
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation(libs.androidx.compose.bom)
-    androidTestImplementation(libs.androidx.ui.test.junit4)
-    debugImplementation(libs.ui.tooling)
-    debugImplementation(libs.androidx.ui.test.manifest)
     */
 
-    implementation("io.ktor:ktor-client-cio-jvm:2.3.2")
-    implementation("io.ktor:ktor-client-content-negotiation:2.3.2")
-    implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.2")
-    implementation("com.google.code.gson:gson:2.8.9")
-    implementation ("com.google.accompanist:accompanist-pager:0.22.0-rc")
+    implementation(libs.ktor.client.cio.jvm)
+    implementation(libs.ktor.client.content.negotiation)
+    implementation(libs.ktor.serialization.kotlinx.json)
+    implementation(libs.gson)
+    implementation (libs.accompanist.pager)
 
     //Navigation
-    implementation("androidx.navigation:navigation-compose:2.7.4")
+    implementation("androidx.navigation:navigation-compose:2.7.7")
 
     //Coil
     implementation("io.coil-kt:coil-compose:2.4.0")
@@ -125,10 +125,10 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
 
     // Dagger Hilt
-    implementation("com.google.dagger:hilt-android:2.46")
-    kapt("com.google.dagger:hilt-android-compiler:2.46")
-    kapt("androidx.hilt:hilt-compiler:1.1.0")
-    implementation("androidx.hilt:hilt-navigation-compose:1.1.0")
+    implementation(libs.hilt.android)
+    kapt(libs.dagger.hilt.android.compiler)
+    kapt(libs.androidx.hilt.compiler)
+    implementation(libs.androidx.hilt.navigation.compose)
 
     //Room
     implementation("androidx.room:room-runtime:2.5.2")
