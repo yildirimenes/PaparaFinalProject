@@ -78,13 +78,6 @@ This project is trying to use the latest Android tech stacks.
 
 * You can download the apk file of the app by clicking [here](https://drive.google.com/drive/folders/1x-RKA3PTVTkzYobFnk5Q6EnWSqy8-QSx) and install the app on your phone.
 
-### Presentation Link:
-
-* [here](https://drive.google.com/drive/folders/1f6jMQZEX6aC9vNM-LnhMJzkuz-Z1FjWS)
-
-### Video Link:
-* [here](https://www.loom.com/share/9a5b0bc303f146179b20e1bc9040923f)
-
 ## Clone Project
 
 1. Clone this repository to your preferred directory using the following command:
