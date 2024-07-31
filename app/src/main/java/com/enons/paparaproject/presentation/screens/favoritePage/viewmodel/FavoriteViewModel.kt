@@ -4,14 +4,18 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.enons.paparaproject.core.ApiResult.ApiResult
 import com.enons.paparaproject.data.local.model.MealEntity
-import com.enons.paparaproject.data.repository.MealRepository
+import com.enons.paparaproject.domain.useCase.database.GetFavoriteMealsUseCase
+import com.enons.paparaproject.domain.useCase.database.RemoveFromFavoritesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 @HiltViewModel
-class FavoriteViewModel @Inject constructor(private val repository: MealRepository) : ViewModel() {
+class FavoriteViewModel @Inject constructor(
+    private val getFavoriteMealsUseCase: GetFavoriteMealsUseCase,
+    private val removeFromFavoritesUseCase: RemoveFromFavoritesUseCase
+) : ViewModel() {
 
     private val _favoriteMeals = MutableStateFlow<ApiResult<List<MealEntity>>>(ApiResult.Success(emptyList()))
     val favoriteMeals: StateFlow<ApiResult<List<MealEntity>>> = _favoriteMeals
@@ -22,7 +26,7 @@ class FavoriteViewModel @Inject constructor(private val repository: MealReposito
 
     private fun getFavoriteMeals() {
         viewModelScope.launch {
-            repository.getAllRecipe().collect { result ->
+            getFavoriteMealsUseCase().collect { result ->
                 _favoriteMeals.value = result
             }
         }
@@ -32,13 +36,8 @@ class FavoriteViewModel @Inject constructor(private val repository: MealReposito
         viewModelScope.launch {
             val favoriteMealsResult = _favoriteMeals.value
             if (favoriteMealsResult is ApiResult.Success) {
-                val meals = favoriteMealsResult.data.toMutableList()
-                val mealToRemove = meals.find { it.mealName == mealName }
-                mealToRemove?.let {
-                    meals.remove(it)
-                    _favoriteMeals.value = ApiResult.Success(meals)
-                    repository.deleteRecipe(it)
-                }
+                val updatedFavorites = removeFromFavoritesUseCase(mealName, favoriteMealsResult.data)
+                _favoriteMeals.value = updatedFavorites
             }
         }
     }
