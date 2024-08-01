@@ -1,7 +1,7 @@
-package com.enons.paparaproject.core.ApiFlow
+package com.enons.paparaproject.core.apiFlow
 
 import coil.network.HttpException
-import com.enons.paparaproject.core.ApiResult.ApiResult
+import com.enons.paparaproject.core.apiResult.ApiResult
 import com.enons.paparaproject.data.remote.dto.OpenAIResponse
 import kotlinx.coroutines.flow.flow
 

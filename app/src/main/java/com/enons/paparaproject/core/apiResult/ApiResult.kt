@@ -1,4 +1,4 @@
-package com.enons.paparaproject.core.ApiResult
+package com.enons.paparaproject.core.apiResult
 
 sealed class ApiResult<out T> {
 
