@@ -15,15 +15,6 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomePageViewModel @Inject constructor() : ViewModel() {
-    private val _isLoading = MutableStateFlow(true)
-    val isLoading: MutableStateFlow<Boolean> = _isLoading
-
-    fun loading() {
-        viewModelScope.launch {
-            delay(2_000)
-            _isLoading.value = false
-        }
-    }
 
     private val _imageUrls = MutableStateFlow<List<String>>(emptyList())
     val imageUrls: StateFlow<List<String>> get() = _imageUrls

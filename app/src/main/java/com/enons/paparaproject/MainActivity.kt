@@ -18,20 +18,19 @@ import java.util.concurrent.TimeUnit
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
     companion object {
         init {
             System.loadLibrary("paparaproject")
         }
     }
-    private val homePageViewModel by viewModels<HomePageViewModel>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        homePageViewModel.loading()
-        installSplashScreen().apply {
-            setKeepOnScreenCondition {
-                homePageViewModel.isLoading.value
-            }
-        }
+
+        // Install the splash screen
+        installSplashScreen()
+
         setContent {
             PaparaFinalProjectTheme {
                 val navController = rememberNavController()
