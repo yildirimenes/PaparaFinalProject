@@ -2,7 +2,6 @@ package com.enons.paparaproject.di
 
 import com.enons.paparaproject.data.repository.MealRepository
 import com.enons.paparaproject.data.repository.MealRepositoryImpl
-import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

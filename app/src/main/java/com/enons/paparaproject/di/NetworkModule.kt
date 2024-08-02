@@ -1,5 +1,7 @@
 package com.enons.paparaproject.di
 
+import com.enons.paparaproject.core.constants.AppConstant.API_BASE_URL
+import com.enons.paparaproject.core.constants.AppConstant.OPEN_AI_URL
 import com.enons.paparaproject.core.interceptor.ApiInterceptor
 import com.enons.paparaproject.data.remote.MealApi
 import com.enons.paparaproject.data.remote.OpenAiApi
@@ -30,7 +32,7 @@ object NetworkModule {
     @Named("MealDbRetrofit")
     fun provideMealDbRetrofit(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("https://www.themealdb.com/api/json/v1/1/")
+            .baseUrl(API_BASE_URL)
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
@@ -42,7 +44,7 @@ object NetworkModule {
     @Named("OpenAiRetrofit")
     fun provideOpenAiRetrofit(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("https://api.openai.com/")
+            .baseUrl(OPEN_AI_URL)
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build()

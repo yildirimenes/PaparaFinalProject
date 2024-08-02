@@ -1,6 +1,6 @@
 package com.enons.paparaproject.data.repository
 
-import com.enons.paparaproject.core.ApiResult.ApiResult
+import com.enons.paparaproject.core.apiResult.ApiResult
 import com.enons.paparaproject.data.local.model.MealEntity
 import com.enons.paparaproject.data.remote.dto.Meal
 import com.enons.paparaproject.data.remote.dto.Message
@@ -23,6 +23,4 @@ interface MealRepository  {
     suspend fun insertRecipe(message: MealEntity)
     suspend fun deleteRecipe(message: MealEntity)
     fun getAllRecipe(): Flow<ApiResult<List<MealEntity>>>
-
-
 }

@@ -1,24 +1,20 @@
 package com.enons.paparaproject.data.remote
 
+import com.enons.paparaproject.core.constants.AppConstant.Endpoints.LATEST
+import com.enons.paparaproject.core.constants.AppConstant.Endpoints.RANDOM
+import com.enons.paparaproject.core.constants.AppConstant.Endpoints.SEARCH
 import com.enons.paparaproject.data.remote.dto.MealResponse
-import com.enons.paparaproject.data.remote.dto.OpenAIRequestBody
-import com.enons.paparaproject.data.remote.dto.OpenAIResponse
-import retrofit2.http.Body
 import retrofit2.http.GET
-import retrofit2.http.POST
 import retrofit2.http.Query
 
 interface MealApi {
     // Meal API Operations
-    @GET("random.php")
+    @GET(RANDOM)
     suspend fun getRandomRecipe(): MealResponse
 
-    @GET("search.php")
+    @GET(SEARCH)
     suspend fun searchRecipe(@Query("s") query: String): MealResponse
 
-    @GET("latest.php")
+    @GET(LATEST)
     suspend fun getLatestRecipe(): MealResponse
-
-
-
 }

@@ -19,12 +19,6 @@ import java.util.concurrent.TimeUnit
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
-    companion object {
-        init {
-            System.loadLibrary("paparaproject")
-        }
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -46,12 +40,5 @@ class MainActivity : ComponentActivity() {
     }
 
 }
-
-private external fun getApiKeyFromNdk(): String
-
-fun getApiKey() : String {
-    return getApiKeyFromNdk()
-}
-
 
 

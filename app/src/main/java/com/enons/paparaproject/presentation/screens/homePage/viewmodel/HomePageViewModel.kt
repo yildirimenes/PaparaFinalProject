@@ -1,16 +1,13 @@
 package com.enons.paparaproject.presentation.screens.homePage.viewmodel
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.enons.paparaproject.utils.AppConstant.FAVORITE_FOOD
-import com.enons.paparaproject.utils.AppConstant.FOOD_RECIPE
-import com.enons.paparaproject.utils.AppConstant.KITCHEN_AI
-import com.enons.paparaproject.utils.AppConstant.SUGGEST_FOOD
+import com.enons.paparaproject.core.constants.AppConstant.FAVORITE_FOOD
+import com.enons.paparaproject.core.constants.AppConstant.FOOD_RECIPE
+import com.enons.paparaproject.core.constants.AppConstant.KITCHEN_AI
+import com.enons.paparaproject.core.constants.AppConstant.SUGGEST_FOOD
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel

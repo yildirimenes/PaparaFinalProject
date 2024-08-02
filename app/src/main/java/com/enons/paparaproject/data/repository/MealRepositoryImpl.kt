@@ -1,7 +1,7 @@
 package com.enons.paparaproject.data.repository
 
-import  com.enons.paparaproject.core.ApiFlow.apiFlow
-import com.enons.paparaproject.core.ApiResult.ApiResult
+import  com.enons.paparaproject.core.apiFlow.apiFlow
+import com.enons.paparaproject.core.apiResult.ApiResult
 import com.enons.paparaproject.data.local.db.MealDatabase
 import com.enons.paparaproject.data.local.model.MealEntity
 import com.enons.paparaproject.data.remote.MealApi

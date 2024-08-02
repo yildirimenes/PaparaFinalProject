@@ -43,7 +43,7 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.enons.paparaproject.R
-import com.enons.paparaproject.core.ApiResult.ApiResult
+import com.enons.paparaproject.core.apiResult.ApiResult
 import com.enons.paparaproject.data.local.model.MealEntity
 import com.enons.paparaproject.presentation.components.CustomText
 import com.enons.paparaproject.presentation.components.DeleteAlertDialog

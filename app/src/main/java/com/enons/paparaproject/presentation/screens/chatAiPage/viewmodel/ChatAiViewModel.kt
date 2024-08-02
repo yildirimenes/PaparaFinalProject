@@ -2,7 +2,7 @@ package com.enons.paparaproject.presentation.screens.chatAiPage.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.enons.paparaproject.core.ApiResult.ApiResult
+import com.enons.paparaproject.core.apiResult.ApiResult
 import com.enons.paparaproject.data.remote.dto.Message
 import com.enons.paparaproject.data.remote.dto.MessageResponse
 import com.enons.paparaproject.data.repository.MealRepository

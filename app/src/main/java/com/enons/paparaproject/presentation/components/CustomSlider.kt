@@ -20,9 +20,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
-import com.enons.paparaproject.utils.AppConstant.SLIDER_ONE
-import com.enons.paparaproject.utils.AppConstant.SLIDER_THREE
-import com.enons.paparaproject.utils.AppConstant.SLIDER_TWO
+import com.enons.paparaproject.core.constants.AppConstant.SLIDER_ONE
+import com.enons.paparaproject.core.constants.AppConstant.SLIDER_THREE
+import com.enons.paparaproject.core.constants.AppConstant.SLIDER_TWO
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.rememberPagerState

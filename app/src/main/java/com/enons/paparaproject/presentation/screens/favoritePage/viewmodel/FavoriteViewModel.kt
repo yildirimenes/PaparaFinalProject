@@ -2,7 +2,7 @@ package com.enons.paparaproject.presentation.screens.favoritePage.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.enons.paparaproject.core.ApiResult.ApiResult
+import com.enons.paparaproject.core.apiResult.ApiResult
 import com.enons.paparaproject.data.local.model.MealEntity
 import com.enons.paparaproject.domain.useCase.database.GetFavoriteMealsUseCase
 import com.enons.paparaproject.domain.useCase.database.RemoveFromFavoritesUseCase

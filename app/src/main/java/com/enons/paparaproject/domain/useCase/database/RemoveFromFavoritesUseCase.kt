@@ -1,6 +1,6 @@
 package com.enons.paparaproject.domain.useCase.database
 
-import com.enons.paparaproject.core.ApiResult.ApiResult
+import com.enons.paparaproject.core.apiResult.ApiResult
 import com.enons.paparaproject.data.local.model.MealEntity
 import com.enons.paparaproject.data.repository.MealRepository
 import javax.inject.Inject
