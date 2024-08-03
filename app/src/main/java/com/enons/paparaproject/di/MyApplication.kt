@@ -1,4 +1,4 @@
-package com.enons.paparaproject
+package com.enons.paparaproject.di
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

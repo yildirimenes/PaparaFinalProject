@@ -4,6 +4,8 @@ agp = "8.4.2"
 coilCompose = "2.5.0"
 converterGson = "2.9.0"
 coreSplashscreen = "1.0.1"
+firebaseBom = "33.1.2"
+googleServices = "4.4.2"
 gson = "2.10.1"
 hiltAndroid = "2.49"
 hiltAndroidCompiler = "2.49"
@@ -28,6 +30,8 @@ retrofit = "2.9.0"
 roomRuntime = "2.6.1"
 uiTextGoogleFonts = "1.6.8"
 workRuntimeKtx = "2.9.0"
+googleGmsGoogleServices = "4.4.2"
+firebaseMessaging = "24.0.0"
 
 [libraries]
 accompanist-pager = { module = "com.google.accompanist:accompanist-pager", version.ref = "accompanistPager" }
@@ -45,6 +49,9 @@ androidx-work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coilCompose" }
 converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "converterGson" }
 dagger-hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hiltAndroidCompiler" }
+firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
+firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
+google-services = { module = "com.google.gms:google-services", version.ref = "googleServices" }
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltAndroid" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -68,9 +75,11 @@ lottie-compose = { module = "com.airbnb.android:lottie-compose", version.ref = "
 material3 = { module = "androidx.compose.material3:material3" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
+firebase-messaging = { group = "com.google.firebase", name = "firebase-messaging", version.ref = "firebaseMessaging" }
 
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+google-gms-google-services = { id = "com.google.gms.google-services", version.ref = "googleGmsGoogleServices" }
 

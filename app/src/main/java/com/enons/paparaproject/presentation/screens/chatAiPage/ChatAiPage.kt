@@ -120,7 +120,8 @@ fun ChatAiPage(
                                     textColor = Color.DarkGray,
                                 )
                             }
-                        }                    }
+                        }
+                    }
                 }
                 is ChatAiState.Error -> {
                     val errorMessage = (chatState as ChatAiState.Error).message
